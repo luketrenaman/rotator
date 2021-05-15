@@ -1,8 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://bullet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://bullet_orange.tscn" type="PackedScene" id=1]
 [ext_resource path="res://bulletgreen.png" type="Texture" id=2]
 [ext_resource path="res://bullet_inverse.gd" type="Script" id=3]
+
+
 
 [node name="Area2D" instance=ExtResource( 1 )]
 script = ExtResource( 3 )

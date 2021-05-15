@@ -1,6 +1,6 @@
 extends Node2D
 export var expand_mult = 1
-
+export var max_dist = 250
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -8,6 +8,7 @@ export var expand_mult = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	set_process(false)
 	pass # Replace with function body.
 
 
@@ -20,9 +21,14 @@ func _process(delta):
 		$Area2D.position.x += delta*50
 		$Area2D2.position.x += delta*50
 	$Area2D.position.x -= delta*10 * expand_mult
-	if $Area2D.position.x < -250:
-		$Area2D.position.x = -250
+	if $Area2D.position.x < -max_dist:
+		$Area2D.position.x = -max_dist
 	$Area2D2.position.x += delta*10 * expand_mult
-	if $Area2D2.position.x > 250:
-		$Area2D2.position.x = 250
+	if $Area2D2.position.x > max_dist:
+		$Area2D2.position.x = max_dist
 	pass
+
+
+func _on_Timer_timeout():
+	set_process(true)
+	pass # Replace with function body.

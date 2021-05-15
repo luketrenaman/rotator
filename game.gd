@@ -7,6 +7,9 @@ var ticks = 5
 var angle = 0
 var tangle = 0
 var victory = false
+var bulletMax = 0
+func _ready():
+	bulletMax = SPAWNERS.ct
 func _process(delta):
 	if Input.is_action_pressed("rotate_left"):
 		BULLETS.rotate(-delta*3)
@@ -23,6 +26,10 @@ func _process(delta):
 func _on_Player_area_entered(area):
 	if not victory:
 		if not area.type == BTYPES.inverse:
+			var completion = floor(100-float(SPAWNERS.ct)/float(bulletMax)*100)
+			if completion == 100:
+				completion = 99
+			$GameOver/Completion.text = str(completion) + "% Complete"
 			$Spawners.queue_free()
 			$Player.visible = false
 			$GameOver.visible = true

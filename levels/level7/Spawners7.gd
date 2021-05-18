@@ -17,13 +17,13 @@ func _ready():
 	
 	for j in range(-30,0):
 		var bul = ORANGEBULLET.instance()
-		var pos:Vector2 = Vector2(-40,-90-j*15)
+		var pos:Vector2 = Vector2(-40-j,-90-j*15)
 		bul.set_position(pos)
 		bul.rotation = tunnel.protation
 		tunnel.add_child(bul)
 	for j in range(-30,0):
 		var bul = ORANGEBULLET.instance()
-		var pos:Vector2 = Vector2(40,-90-j*15)
+		var pos:Vector2 = Vector2(40+j,-90-j*15)
 		bul.set_position(pos)
 		bul.rotation = tunnel.protation
 		tunnel.add_child(bul)
@@ -42,12 +42,23 @@ func _ready():
 		bul.rotation = tunnel.protation
 		tunnel.add_child(bul)
 	self.connect("victory", get_parent(), "_on_victory")
-	$"../Label".text = str(ct)
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if ct == 0 and len(Bullets.get_children()) == 0:
+	if len(Bullets.get_children()) == 0:
 		emit_signal("victory")
+		$Timer2.stop()
 	pass
+
+
+func _on_Timer2_timeout():
+	var farthest = tunnel.get_children()[tunnel.get_child_count()-1]
+	if (farthest.get_position().length()-320) <= 0 or ct <= 0:
+		ct = 0
+	else:
+		ct = (farthest.get_position().length()-320)/875
+		
+	$"../Label".text = str(ceil(ct*100)) + "%"
+	pass # Replace with function body.

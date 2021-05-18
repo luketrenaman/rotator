@@ -16,7 +16,6 @@ var offset = 3*PI/4
 func _ready():
 	self.connect("victory", get_parent(), "_on_victory")
 	$"../Label".text = str(ct)
-	set_process(false)
 	pass # Replace with function body.
 
 

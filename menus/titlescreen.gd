@@ -1,5 +1,5 @@
 extends Control
-var bullet = preload("bullets/bullet.tscn")
+var bullet = preload("res://bullets/bullet.tscn")
 onready var BULLETS = get_node("bullets")
 var SPEED = 50
 # Declare member variables here. Examples:
@@ -33,6 +33,6 @@ func _process(delta):
 
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://levelselect.tscn")
+	get_tree().change_scene("res://menus/levelselect.tscn")
 
 	pass # Replace with function body.

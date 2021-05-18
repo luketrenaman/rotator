@@ -1,3 +1,2 @@
 extends Area2D
-enum BTYPES{bullet,inverse,orange}
-var type = BTYPES.orange
+var type = Global.BTYPES.orange

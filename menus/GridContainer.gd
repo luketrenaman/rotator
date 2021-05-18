@@ -26,5 +26,5 @@ func _on_Control_pressed(val):
 	get_tree().change_scene("res://levels/level"+val+"/"+"level"+val+".tscn")
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://titlescreen.tscn")
+	get_tree().change_scene("res://menus/titlescreen.tscn")
 	pass # Replace with function body.

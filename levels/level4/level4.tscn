@@ -1,8 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://levels/level4/Spawners4.gd" type="Script" id=1]
-[ext_resource path="res://circle.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Bounders.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/circle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://bullets/Bounders.tscn" type="PackedScene" id=3]
+
+
 
 [node name="Node2D" instance=ExtResource( 2 )]
 

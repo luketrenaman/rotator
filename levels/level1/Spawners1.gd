@@ -1,6 +1,6 @@
 extends Node2D
-onready var BULLET = preload("res://bullet.tscn")
-onready var ORANGEBULLET = preload("res://bullet_orange.tscn")
+onready var BULLET = preload("res://bullets/bullet.tscn")
+onready var ORANGEBULLET = preload("res://bullets/bullet_orange.tscn")
 onready var Bullets = get_node("bullets")
 signal victory
 var ct = 300

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://game/circle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://bullets/Bounders.tscn" type="PackedScene" id=2]
-[ext_resource path="res://levels/level6/Spawners6.gd" type="Script" id=3]
+[ext_resource path="res://levels/level7/Spawners7.gd" type="Script" id=3]
 
 
 
@@ -15,7 +15,7 @@ script = ExtResource( 3 )
 wait_time = 3.0
 
 [node name="Timer2" type="Timer" parent="Spawners" index="1"]
-wait_time = 3.0
+wait_time = 0.05
 autostart = true
 
 [node name="Bounders" parent="Spawners" index="3" instance=ExtResource( 2 )]

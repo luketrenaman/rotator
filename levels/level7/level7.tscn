@@ -7,13 +7,3 @@
 
 [node name="Spawners" parent="." index="0"]
 script = ExtResource( 3 )
-
-[node name="Timer" type="Timer" parent="Spawners" index="0"]
-wait_time = 5.0
-one_shot = true
-
-[node name="Timer2" type="Timer" parent="Spawners" index="1"]
-wait_time = 0.1
-autostart = true
-[connection signal="timeout" from="Spawners/Timer" to="Spawners" method="_on_Timer_timeout"]
-[connection signal="timeout" from="Spawners/Timer2" to="Spawners" method="_on_Timer2_timeout"]

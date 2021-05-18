@@ -4,8 +4,6 @@
 [ext_resource path="res://game/circle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://bullets/Bounders.tscn" type="PackedScene" id=3]
 
-
-
 [node name="Node2D" instance=ExtResource( 2 )]
 
 [node name="Spawners" parent="." index="0"]

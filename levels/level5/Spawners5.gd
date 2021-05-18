@@ -19,24 +19,6 @@ func _process(delta):
 	if ct == 0 and len(Bullets.get_children()) == 0:
 		emit_signal("victory")
 	pass
-
-func _on_Timer_timeout():
-	if len(Bullets.get_children()) < 300:
-		for i in range(0,2):
-			var bul = BULLET.instance()
-			var tangle = 0+i*PI
-			bul.set_position(Vector2(cos(tangle)*160,sin(tangle)*160))
-			
-			bul.rotation = 0+i*PI-PI
-			Bullets.add_child(bul)
-		ct -= 2
-	if ct <= 0:
-		$Timer.stop()
-		ct = 0
-	$"../Label".text = str(ct)
-	pass # Replace with function body.
-
-
 func _on_Timer2_timeout():
 	if len(Bullets.get_children()) < 300:
 #		for i in range(0,16):

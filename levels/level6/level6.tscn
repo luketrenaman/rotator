@@ -9,14 +9,11 @@
 [node name="Spawners" parent="." index="0"]
 script = ExtResource( 3 )
 
-[node name="Timer" type="Timer" parent="Spawners" index="0"]
-wait_time = 3.0
-
-[node name="Timer2" type="Timer" parent="Spawners" index="1"]
+[node name="Timer2" type="Timer" parent="Spawners" index="0"]
 wait_time = 0.05
 autostart = true
 
-[node name="Bounders" parent="Spawners" index="3" instance=ExtResource( 2 )]
+[node name="Bounders" parent="Spawners" index="2" instance=ExtResource( 2 )]
 max_dist = 100
 
 [node name="Area2D" parent="Spawners/Bounders" index="0"]
@@ -24,7 +21,6 @@ position = Vector2( -50, 0 )
 
 [node name="Area2D2" parent="Spawners/Bounders" index="1"]
 position = Vector2( 50, 0 )
-[connection signal="timeout" from="Spawners/Timer" to="Spawners" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Spawners/Timer2" to="Spawners" method="_on_Timer2_timeout"]
 
 [editable path="Spawners/Bounders"]

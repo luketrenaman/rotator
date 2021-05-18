@@ -13,9 +13,5 @@ script = ExtResource( 1 )
 wait_time = 3.0
 autostart = true
 
-[node name="Timer2" type="Timer" parent="Spawners" index="1"]
-wait_time = 0.5
-autostart = true
-
-[node name="Bounders" parent="Spawners" index="3" instance=ExtResource( 3 )]
+[node name="Bounders" parent="Spawners" index="2" instance=ExtResource( 3 )]
 [connection signal="timeout" from="Spawners/Timer1" to="Spawners" method="_on_Timer1_timeout"]

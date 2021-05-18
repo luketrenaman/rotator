@@ -38,9 +38,9 @@ func _on_Player_area_entered(area):
 			area.queue_free()
 
 
-func _on_start_game_timeout():
-	$Spawners.pause_mode = Node.PAUSE_MODE_PROCESS
-	$Spawners.set_process(true)
+#func _on_start_game_timeout():
+#	$Spawners.pause_mode = Node.PAUSE_MODE_PROCESS
+#	$Spawners.set_process(true)
 func _on_victory():
 	if Global.levels_completed < Global.current_level:
 		Global.levels_completed = Global.current_level

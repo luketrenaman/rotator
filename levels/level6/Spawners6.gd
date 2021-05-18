@@ -5,7 +5,7 @@ onready var Bullets = get_node("bullets")
 onready var PLAYER = get_node("Player")
 var angle = 0
 signal victory
-var ct = 300
+var ct = 160
 var a = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -47,15 +47,20 @@ func _on_Timer2_timeout():
 #			var bpos = bul.get_position()
 #			bul.rotation = i * PI/8
 #			Bullets.add_child(bul)
-		for j in range(0,1):
-			var bul = BULLET.instance()
-			var tangle = PI/8*j-PI/2
-			bul.set_position(Vector2(cos(tangle),sin(tangle))*(160+sin(ct)*80))
-			var bpos = bul.get_position()
-			bul.rotation = atan2(-bpos.y,-bpos.x)-ct*PI/4
-			Bullets.add_child(bul)
-		a += 1
-		ct -= 1
+		if a % 2 == 0:
+			for j in range(-8,8):
+				var bul = ORANGEBULLET.instance()
+				bul.set_position(Vector2(j*40,sin(j+a*PI/4)*40-100))
+				bul.rotation = PI/3
+				Bullets.add_child(bul)
+		else:
+			for j in range(-8,8):
+				var bul = ORANGEBULLET.instance()
+				bul.set_position(Vector2(j*40,cos(2*j-a*PI/4)*40+100))
+				bul.rotation = -PI/3
+				Bullets.add_child(bul)
+		a+=1
+		ct -= 16
 	if ct <= 0:
 		$Timer2.stop()
 		ct = 0

@@ -18,54 +18,54 @@ font_data = ExtResource( 7 )
 size = 48
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=13]
-size = 32
-font_data = ExtResource( 7 )
-
 [sub_resource type="DynamicFont" id=4]
 size = 32
 font_data = ExtResource( 7 )
 
-[sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0.286275, 0.286275, 0.286275, 1 )
+[sub_resource type="DynamicFont" id=5]
+size = 32
+font_data = ExtResource( 7 )
 
 [sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0.141176, 0.858824, 0.188235, 1 )
+bg_color = Color( 0.286275, 0.286275, 0.286275, 1 )
 
 [sub_resource type="StyleBoxFlat" id=7]
-bg_color = Color( 0, 0.521569, 0.0352941, 1 )
+bg_color = Color( 0.141176, 0.858824, 0.188235, 1 )
 
 [sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0, 0.521569, 0.0352941, 1 )
 
-[sub_resource type="Theme" id=9]
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0, 0.521569, 0.0352941, 1 )
+
+[sub_resource type="Theme" id=10]
 Button/colors/font_color = Color( 1, 1, 1, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
 Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
 Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
 Button/constants/hseparation = 2
-Button/fonts/font = SubResource( 4 )
+Button/fonts/font = SubResource( 5 )
 Button/icons/black = null
-Button/styles/disabled = SubResource( 5 )
+Button/styles/disabled = SubResource( 6 )
 Button/styles/focus = null
-Button/styles/hover = SubResource( 6 )
-Button/styles/normal = SubResource( 7 )
-Button/styles/pressed = SubResource( 8 )
-
-[sub_resource type="StyleBoxFlat" id=10]
-bg_color = Color( 0.576471, 0, 0, 1 )
+Button/styles/hover = SubResource( 7 )
+Button/styles/normal = SubResource( 8 )
+Button/styles/pressed = SubResource( 9 )
 
 [sub_resource type="StyleBoxFlat" id=11]
-bg_color = Color( 0.823529, 0.00784314, 0.00784314, 1 )
+bg_color = Color( 0.576471, 0, 0, 1 )
 
 [sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.823529, 0.00784314, 0.00784314, 1 )
+
+[sub_resource type="StyleBoxFlat" id=13]
 bg_color = Color( 0.823529, 0.00784314, 0.00784314, 1 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="Spawners" type="Node2D" parent="."]
-pause_mode = 1
+pause_mode = 2
 
 [node name="bullets" type="Node2D" parent="Spawners"]
 position = Vector2( 300, 300 )
@@ -193,7 +193,7 @@ margin_left = -168.5
 margin_top = -27.0
 margin_right = 168.5
 margin_bottom = 39.0
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "50% Complete"
 align = 1
@@ -232,10 +232,10 @@ margin_right = 383.0
 margin_bottom = 45.0
 rect_min_size = Vector2( 179, 0 )
 mouse_default_cursor_shape = 2
-theme = SubResource( 9 )
-custom_styles/hover = SubResource( 10 )
-custom_styles/pressed = SubResource( 11 )
-custom_styles/normal = SubResource( 12 )
+theme = SubResource( 10 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
 text = "Try Again"
 __meta__ = {
 "_edit_use_anchors_": false

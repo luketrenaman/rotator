@@ -8,7 +8,7 @@ export var max_dist = 250
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_process(false)
+	#set_process(false)
 	pass # Replace with function body.
 
 
@@ -29,6 +29,6 @@ func _process(delta):
 	pass
 
 
-func _on_Timer_timeout():
-	set_process(true)
-	pass # Replace with function body.
+#func _on_Timer_timeout():
+#	set_process(true)
+#	pass # Replace with function body.

@@ -14,7 +14,7 @@ func _process(delta):
 					child.queue_free()
 			continue
 		if child.type == Global.BTYPES.inverse:
-			child.position += Vector2(cos(child.rotation),sin(child.rotation)) * delta * 100
+			child.position += Vector2(cos(child.rotation),sin(child.rotation)) * delta * 60
 		else:
 			child.position += Vector2(cos(child.rotation),sin(child.rotation)) * delta * 50
 		if child.position.length() < lowest:
@@ -34,7 +34,7 @@ func rotate(delta):
 				subchild.set_position(magnitude * Vector2(cos(angle),sin(angle)))
 			continue
 		if child.type == Global.BTYPES.inverse:
-			child.rotation -= delta * 1.5
+			child.rotation += delta * 1
 			continue
 		if child.type == Global.BTYPES.orange:
 			var pos = child.get_position()

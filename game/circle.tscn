@@ -8,11 +8,6 @@
 [ext_resource path="res://menus/black_button.tres" type="Theme" id=6]
 [ext_resource path="res://NunitoSans-Black.ttf" type="DynamicFontData" id=7]
 
-
-
-
-
-
 [sub_resource type="CircleShape2D" id=1]
 
 [sub_resource type="DynamicFont" id=2]
@@ -88,11 +83,6 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource( 1 )
-
-[node name="start_game" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-autostart = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2
@@ -246,7 +236,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="area_entered" from="Player" to="." method="_on_Player_area_entered"]
-[connection signal="timeout" from="start_game" to="." method="_on_start_game_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="Victory/HBoxContainer/LevelSelect" to="." method="_on_LevelSelect_pressed"]
 [connection signal="pressed" from="Victory/HBoxContainer/NextLevel" to="." method="_on_NextLevel_pressed"]

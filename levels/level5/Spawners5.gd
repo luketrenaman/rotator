@@ -2,7 +2,6 @@ extends Node2D
 onready var BULLET = preload("res://bullets/bullet.tscn")
 onready var ORANGEBULLET = preload("res://bullets/bullet_orange.tscn")
 onready var Bullets = get_node("bullets")
-onready var PLAYER = get_node("Player")
 var angle = 0
 signal victory
 var ct = 300

@@ -1,9 +1,8 @@
 extends Node2D
 onready var BULLET = preload("res://bullets/bullet.tscn")
-onready var ORANGEBULLET = preload("res://bullets/bullet_orange.tscn")
 onready var TUNNEL = preload("res://bullets/tunnel.tscn")
+onready var TUNNELBULLET = preload("res://bullets/tunnel_bullet.tscn")
 onready var Bullets = get_node("bullets")
-onready var PLAYER = get_node("Player")
 var angle = 0
 var tunnel
 signal victory
@@ -16,27 +15,25 @@ func _ready():
 	Bullets.add_child(tunnel)
 	
 	for j in range(-30,0):
-		var bul = ORANGEBULLET.instance()
+		var bul = TUNNELBULLET.instance()
 		var pos:Vector2 = Vector2(-40-j,-90-j*15)
 		bul.set_position(pos)
 		bul.rotation = tunnel.protation
 		tunnel.add_child(bul)
 	for j in range(-30,0):
-		var bul = ORANGEBULLET.instance()
+		var bul = TUNNELBULLET.instance()
 		var pos:Vector2 = Vector2(40+j,-90-j*15)
 		bul.set_position(pos)
 		bul.rotation = tunnel.protation
 		tunnel.add_child(bul)
-		Bullets.add_child(tunnel)
 	for j in range(0,75):
-		var bul = ORANGEBULLET.instance()
+		var bul = TUNNELBULLET.instance()
 		var pos:Vector2 = Vector2(40*(sin(float(j)/4+PI)+1),-90-j*15)
 		bul.set_position(pos)
 		bul.rotation = tunnel.protation
 		tunnel.add_child(bul)
-		Bullets.add_child(tunnel)
 	for j in range(0,75):
-		var bul = ORANGEBULLET.instance()
+		var bul = TUNNELBULLET.instance()
 		var pos:Vector2 = Vector2(-40*(sin(float(j)/4)+1),-90-j*15)
 		bul.set_position(pos)
 		bul.rotation = tunnel.protation

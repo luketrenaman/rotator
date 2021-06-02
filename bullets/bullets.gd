@@ -1,5 +1,4 @@
 extends Node2D
-onready var TIMER = get_node("../Timer")
 func _process(delta):
 	var lowest = 500
 	for child in self.get_children():

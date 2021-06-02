@@ -44,10 +44,6 @@ func _on_Player_area_entered(area):
 			$Lifespan.life += 5
 			area.queue_free()
 
-
-#func _on_start_game_timeout():
-#	$Spawners.pause_mode = Node.PAUSE_MODE_PROCESS
-#	$Spawners.set_process(true)
 func _on_victory():
 	if Global.levels_completed < Global.current_level:
 		Global.levels_completed = Global.current_level
@@ -56,7 +52,7 @@ func _on_victory():
 
 
 func _on_LevelSelect_pressed():
-	get_tree().change_scene("res://levelselect.tscn")
+	get_tree().change_scene("res://menus/levelselect.tscn")
 	pass # Replace with function body.
 
 

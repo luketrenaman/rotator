@@ -22,16 +22,14 @@ position = Vector2( -50, 0 )
 [node name="Area2D2" parent="Spawners/Bounders" index="1"]
 position = Vector2( 50, 0 )
 
-[node name="Completion" parent="GameOver" index="1"]
+[node name="Completion" parent="GameOver" index="2"]
 margin_left = 196.5
 margin_right = 276.5
-text = "50"
 align = 2
 
-[node name="Completion2" parent="GameOver" index="2"]
+[node name="Completion2" parent="GameOver" index="3"]
 margin_left = 313.5
 margin_right = 353.5
-text = "%"
 [connection signal="timeout" from="Spawners/Timer" to="Spawners" method="_on_Timer_timeout"]
 
 [editable path="Spawners/Bounders"]

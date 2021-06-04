@@ -29,13 +29,13 @@ func _on_Timer2_timeout():
 		var bpos = bul.get_position()
 		bul.rotation = float(b)*1/4*PI
 		Bullets.add_child(bul)
+	ct -= 24
+	b += 1
 	if ct < 0:
 		$Timer.stop()
 		$Timer2.stop()
 		ct = 0
 	$"../Label".text = str(ct)
-	ct -= 24
-	b += 1
 
 func _on_Timer_timeout():
 	if len(Bullets.get_children()) < 300:

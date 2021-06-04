@@ -1,5 +1,6 @@
 extends Control
-var life:float = 10.0
+export var life:float = 10.0
+export var val:float = 5.0
 onready var spawner = get_parent().get_node("Spawners")
 signal game_over
 # Declare member variables here. Examples:

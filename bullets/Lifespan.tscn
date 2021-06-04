@@ -16,6 +16,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="HBoxContainer3" type="HBoxContainer" parent="."]
+margin_top = 557.0
+margin_right = 594.0
+margin_bottom = 602.0
+rect_min_size = Vector2( 594, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="HBoxContainer3"]
+margin_left = 482.0
+margin_right = 594.0
+margin_bottom = 45.0
+size_flags_horizontal = 10
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.141176, 0.858824, 0.188235, 1 )
+text = "5s / bul"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_right = 594.0
 margin_bottom = 45.0

@@ -16,4 +16,10 @@ autostart = true
 [node name="Lifespan" parent="." index="3" instance=ExtResource( 3 )]
 margin_right = 600.0
 margin_bottom = 600.0
+
+[node name="Label" parent="." index="4"]
+margin_top = 0.0
+margin_bottom = 45.0
 [connection signal="timeout" from="Spawners/Timer2" to="Spawners" method="_on_Timer2_timeout"]
+
+[editable path="Lifespan"]

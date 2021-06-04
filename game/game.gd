@@ -31,9 +31,13 @@ func game_over():
 	var completion = floor(100-float(SPAWNERS.ct)/float(bulletMax)*100)
 	if completion == 100:
 		completion = 99
-	$GameOver/Completion.text = str(completion) + "% Complete"
-	$Spawners.queue_free()
-	$Player.visible = false
+	$GameOver/Completion.text = str(completion)
+	for child in $Spawners.get_children():
+		if child.get_name() == "bullets":
+			continue
+		child.queue_free()
+	$Spawners/bullets.set_process(false)
+	#$Player.visible = false
 	$GameOver.visible = true
 	set_process(false)
 func _on_Player_area_entered(area):

@@ -2,9 +2,10 @@ extends Node2D
 onready var BULLET = preload("res://bullets/bullet.tscn")
 onready var ORANGEBULLET = preload("res://bullets/bullet_orange.tscn")
 onready var Bullets = get_node("bullets")
-var angle = 0
 signal victory
-var ct = 250
+var ct = 80
+var angle = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.connect("victory", get_parent(), "_on_victory")
@@ -20,15 +21,14 @@ func _process(delta):
 
 func _on_Timer_timeout():
 	if len(Bullets.get_children()) < 300:
-		for i in range(0,10):
-			var bul = ORANGEBULLET.instance()
-			var angle = 3*PI/2 + int(ct / 10) * PI/4
-			bul.set_position(Vector2(cos(angle-i*PI/80),sin(angle-i*PI/80))*160)
-			var bpos = bul.get_position()
-			bul.rotation = angle+PI- PI/16
-			Bullets.add_child(bul)
-		ct -= 10
+		var bul = BULLET.instance()
+		bul.set_position(Vector2(cos(ct*PI/16),sin(ct*PI/16))*160)
+		var bpos = bul.get_position()
+		bul.rotation = atan2(-bpos.y,-bpos.x) + (ct % 8 - 4) * PI/30
+		Bullets.add_child(bul)
+		ct -= 1
 	$"../Label".text = str(ct)
 	if ct == 0:
 		$Timer.stop()
+	pass # Replace with function body.
 	pass # Replace with function body.

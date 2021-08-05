@@ -50,8 +50,10 @@ __meta__ = {
 
 [node name="player" type="Sprite" parent="."]
 position = Vector2( 300, 300 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
 [node name="bullets" type="Node2D" parent="."]
 position = Vector2( 300, 300 )
+
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

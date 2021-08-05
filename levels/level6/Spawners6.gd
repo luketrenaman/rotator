@@ -2,10 +2,16 @@ extends Node2D
 onready var BULLET = preload("res://bullets/bullet.tscn")
 onready var ORANGEBULLET = preload("res://bullets/bullet_orange.tscn")
 onready var Bullets = get_node("bullets")
-var angle = 0
 signal victory
-var ct = 160
-var a = 0
+var ct = 300
+var angle = 0
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
+var irange = 20
+var jrange = 10
+var anglesector = PI*1/2
+var offset = 3*PI/4
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.connect("victory", get_parent(), "_on_victory")
@@ -17,33 +23,26 @@ func _ready():
 func _process(delta):
 	if ct == 0 and len(Bullets.get_children()) == 0:
 		emit_signal("victory")
-	pass
 
-func _on_Timer2_timeout():
+
+func _on_Timer1_timeout():
 	if len(Bullets.get_children()) < 300:
-#		for i in range(0,16):
-#			var bul = BULLET.instance()
-#			var angle = -PI/2
-#			bul.set_position(Vector2(cos(angle),sin(angle))*160)
-#			var bpos = bul.get_position()
-#			bul.rotation = i * PI/8
-#			Bullets.add_child(bul)
-		if a % 2 == 0:
-			for j in range(-8,8):
-				var bul = ORANGEBULLET.instance()
-				bul.set_position(Vector2(j*40,sin(j+a*PI/4)*40-100))
-				bul.rotation = PI/3
-				Bullets.add_child(bul)
-		else:
-			for j in range(-8,8):
-				var bul = ORANGEBULLET.instance()
-				bul.set_position(Vector2(j*40,cos(2*j-a*PI/4)*40+100))
-				bul.rotation = -PI/3
-				Bullets.add_child(bul)
-		a+=1
-		ct -= 16
-	if ct <= 0:
-		$Timer2.stop()
-		ct = 0
+		for j in range (0,jrange):
+			var bul = BULLET.instance()
+			bul.set_position(Vector2(cos(j*2*PI/jrange),sin(j*2*PI/jrange))*240)
+			var bpos = bul.get_position()
+			if j % 2 == 0:
+				bul.rotation = atan2(-bpos.y,-bpos.x) + PI/2
+			else:
+				bul.rotation = atan2(-bpos.y,-bpos.x) - PI/2
+			Bullets.add_child(bul)
+			ct -= 1
+		for i in range(0,irange):
+			var bul = ORANGEBULLET.instance()
+			bul.set_position(Vector2(cos(i*anglesector/irange+offset),sin(i*anglesector/irange+offset))*160)
+			Bullets.add_child(bul)
+			ct -= 1
 	$"../Label".text = str(ct)
+	if ct == 0:
+		$Timer1.stop()
 	pass # Replace with function body.

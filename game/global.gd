@@ -1,7 +1,7 @@
 extends Node
 var current_level = 0
 var levels_completed = 0
-enum BTYPES{bullet,inverse,orange,bounder,tunnel}
+enum BTYPES{bullet,inverse,orange,bounder,tunnel,tchild}
 
 # Declare member variables here. Examples:
 # var a = 2

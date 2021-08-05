@@ -21,5 +21,6 @@ autostart = true
 margin_right = 600.0
 margin_bottom = 600.0
 life = 20.0
+
 [connection signal="timeout" from="Spawners/Timer" to="Spawners" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Spawners/Timer2" to="Spawners" method="_on_Timer2_timeout"]

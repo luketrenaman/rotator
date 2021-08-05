@@ -3,15 +3,11 @@ onready var BULLET = preload("res://bullets/bullet.tscn")
 onready var ORANGEBULLET = preload("res://bullets/bullet_orange.tscn")
 onready var Bullets = get_node("bullets")
 signal victory
-var ct = 300
-var angle = 0
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var ct = 160
+var q = 0
 var irange = 20
-var jrange = 10
+var angle = 0
 var anglesector = PI*1/2
-var offset = 3*PI/4
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.connect("victory", get_parent(), "_on_victory")
@@ -23,26 +19,25 @@ func _ready():
 func _process(delta):
 	if ct == 0 and len(Bullets.get_children()) == 0:
 		emit_signal("victory")
+	pass
 
-
-func _on_Timer1_timeout():
+func _on_Timer_timeout():
 	if len(Bullets.get_children()) < 300:
-		for j in range (0,jrange):
-			var bul = BULLET.instance()
-			bul.set_position(Vector2(cos(j*2*PI/jrange),sin(j*2*PI/jrange))*240)
-			var bpos = bul.get_position()
-			if j % 2 == 0:
-				bul.rotation = atan2(-bpos.y,-bpos.x) + PI/2
-			else:
-				bul.rotation = atan2(-bpos.y,-bpos.x) - PI/2
-			Bullets.add_child(bul)
-			ct -= 1
 		for i in range(0,irange):
 			var bul = ORANGEBULLET.instance()
-			bul.set_position(Vector2(cos(i*anglesector/irange+offset),sin(i*anglesector/irange+offset))*160)
+			var spawn_offset = q * PI/2
+			var angle = i*anglesector/irange+spawn_offset
+			bul.set_position(Vector2(cos(angle),sin(angle))*160)
+			bul.rotation = spawn_offset + 5*PI/4
 			Bullets.add_child(bul)
 			ct -= 1
+		q+=1
 	$"../Label".text = str(ct)
 	if ct == 0:
-		$Timer1.stop()
+		$Timer.stop()
+	pass # Replace with function body.
+
+
+func _on_starter_timeout():
+	_on_Timer_timeout()
 	pass # Replace with function body.

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://game/circle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/level8/Spawners8.gd" type="Script" id=2]
+[ext_resource path="res://bullets/Lifespan.tscn" type="PackedScene" id=3]
 
 [node name="Node2D" instance=ExtResource( 1 )]
 
@@ -9,12 +10,17 @@
 script = ExtResource( 2 )
 
 [node name="Timer2" type="Timer" parent="Spawners" index="1"]
-wait_time = 0.2
+wait_time = 0.5
 autostart = true
 
-[node name="Label" parent="." index="4"]
-visible = false
+[node name="Lifespan" parent="." index="3" instance=ExtResource( 3 )]
+margin_right = 600.0
+margin_bottom = 600.0
 
-[node name="Completion" parent="GameOver" index="1"]
-visible = false
+[node name="Label" parent="." index="4"]
+margin_top = 0.0
+margin_bottom = 45.0
+
 [connection signal="timeout" from="Spawners/Timer2" to="Spawners" method="_on_Timer2_timeout"]
+
+[editable path="Lifespan"]

@@ -25,4 +25,6 @@ func _process(delta):
 		life = life - delta
 		if life < 0:
 			life = 0
+			$HBoxContainer/Label.add_color_override("font_color", Color("d20202"))
+			$HBoxContainer/Label.set("custom_colors/font_color",Color("d20202"))
 			emit_signal("game_over")

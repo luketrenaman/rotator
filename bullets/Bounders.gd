@@ -1,5 +1,5 @@
 extends Node2D
-export var expand_mult = 1
+export var expand_mult = 1.0
 export var max_dist = 250
 # Declare member variables here. Examples:
 # var a = 2

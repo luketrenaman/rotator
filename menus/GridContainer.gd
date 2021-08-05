@@ -1,6 +1,4 @@
 extends GridContainer
-
-
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -24,7 +22,7 @@ func _ready():
 #	pass
 func _on_Control_pressed(val):
 	Global.current_level = int(val)
-	get_tree().change_scene("res://levels/level"+val+"/"+"level"+val+".tscn")
+	get_tree().change_scene("res://levels/level"+str(val)+"/"+"level"+str(val)+".tscn")
 
 func _on_Button_pressed():
 	get_tree().change_scene("res://menus/titlescreen.tscn")

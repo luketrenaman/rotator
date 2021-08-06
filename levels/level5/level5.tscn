@@ -10,7 +10,7 @@
 script = ExtResource( 3 )
 
 [node name="Timer2" type="Timer" parent="Spawners" index="0"]
-wait_time = 3.0
+wait_time = 0.05
 autostart = true
 
 [node name="Bounders" parent="Spawners" index="2" instance=ExtResource( 2 )]

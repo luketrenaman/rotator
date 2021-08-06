@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://menu_leave.ogg" type="AudioStream" id=1]
 [ext_resource path="res://addons/mixing-desk/music/song.gd" type="Script" id=2]
@@ -6,20 +6,21 @@
 [ext_resource path="res://addons/mixing-desk/music/mixing_desk_music.gd" type="Script" id=4]
 [ext_resource path="res://game/AudioManager.gd" type="Script" id=5]
 [ext_resource path="res://cmloop.ogg" type="AudioStream" id=6]
+[ext_resource path="res://cmdefeat.ogg" type="AudioStream" id=7]
+[ext_resource path="res://cmvictory.ogg" type="AudioStream" id=8]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource( 5 )
 
 [node name="MDM" type="Node" parent="."]
 script = ExtResource( 4 )
-play_mode = 1
 
 [node name="Theme1" type="Node" parent="MDM"]
 script = ExtResource( 2 )
 tempo = 105
 bars = 7
 beats_in_bar = 4
-transition_beats = 4.0
+transition_type = "Bar"
 
 [node name="CoreContainer" type="Node" parent="MDM/Theme1"]
 script = ExtResource( 3 )
@@ -27,12 +28,36 @@ script = ExtResource( 3 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MDM/Theme1/CoreContainer"]
 stream = ExtResource( 6 )
 
+[node name="Theme1_defeat" type="Node" parent="MDM"]
+script = ExtResource( 2 )
+tempo = 105
+bars = 1
+beats_in_bar = 4
+
+[node name="CoreContainer" type="Node" parent="MDM/Theme1_defeat"]
+script = ExtResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MDM/Theme1_defeat/CoreContainer"]
+stream = ExtResource( 7 )
+
+[node name="Theme1_victory" type="Node" parent="MDM"]
+script = ExtResource( 2 )
+tempo = 105
+bars = 2
+beats_in_bar = 4
+
+[node name="CoreContainer" type="Node" parent="MDM/Theme1_victory"]
+script = ExtResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MDM/Theme1_victory/CoreContainer"]
+stream = ExtResource( 8 )
+
 [node name="Menu" type="Node" parent="MDM"]
 script = ExtResource( 2 )
 tempo = 103
 bars = 30
 beats_in_bar = 4
-transition_beats = 4.0
+transition_type = "Bar"
 
 [node name="CoreContainer" type="Node" parent="MDM/Menu"]
 script = ExtResource( 3 )

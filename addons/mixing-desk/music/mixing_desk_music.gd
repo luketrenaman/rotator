@@ -416,6 +416,8 @@ func _core_finished():
 	match get_current_song().song_type:
 		"standard":
 			match play_mode:
+				0:
+					playing = false
 				1:
 					bar = 1
 					beat = 1

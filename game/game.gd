@@ -8,6 +8,7 @@ var tangle = 0
 var victory = false
 var bulletMax = 0
 func _ready():
+	AudioManager.change_song("Theme1")
 	if self.has_node("Lifespan"):
 		get_node("Lifespan").set_process(true)
 	bulletMax = SPAWNERS.ct
@@ -26,6 +27,7 @@ func _on_Lifespan_game_over():
 	$GameOver/DeathCause.text = "Lifespan Timer Depleted"
 	game_over(false)
 func game_over(collider):
+	AudioManager.punctuate_song("Theme1_defeat")
 	if collider:
 		match collider.type:
 			Global.BTYPES.bullet:
@@ -62,6 +64,9 @@ func _on_Player_area_entered(area):
 			area.queue_free()
 
 func _on_victory():
+	if victory:
+		return
+	AudioManager.punctuate_song("Theme1_victory")
 	if Global.levels_completed < Global.current_level:
 		Global.levels_completed = Global.current_level
 	$Victory.visible = true
@@ -70,11 +75,14 @@ func _on_victory():
 
 func _on_LevelSelect_pressed():
 	get_tree().change_scene("res://menus/levelselect.tscn")
+	AudioManager.change_song("Menu")
 	pass # Replace with function body.
 
 
 func _on_NextLevel_pressed():
-	get_tree().change_scene("res://levels/level"+str(Global.current_level+1)+"/"+"level"+str(Global.current_level+1)+".tscn")
+	Global.current_level += 1
+	get_tree().change_scene("res://levels/level"+str(Global.current_level)+"/"+"level"+str(Global.current_level)+".tscn")
+	
 	pass # Replace with function body.
 
 

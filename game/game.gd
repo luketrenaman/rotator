@@ -6,6 +6,7 @@ var ticks = 5
 var angle = 0
 var tangle = 0
 var victory = false
+var gameover = false
 var bulletMax = 0
 func _ready():
 	AudioManager.change_song("Theme1")
@@ -13,16 +14,20 @@ func _ready():
 		get_node("Lifespan").set_process(true)
 	bulletMax = SPAWNERS.ct
 func _process(delta):
-	if Input.is_action_pressed("rotate_left"):
-		BULLETS.rotate(-delta*3)
-		SPAWNERS.angle -= delta*3
-		#angle += -delta*3
-		#tangle += -delta*3
-	elif Input.is_action_pressed("rotate_right"):
-		BULLETS.rotate(delta*3)
-		SPAWNERS.angle += delta*3
-		#angle += delta*3
-		#tangle += delta*3
+	if not gameover:
+		if Input.is_action_pressed("rotate_left"):
+			BULLETS.rotate(-delta*3)
+			SPAWNERS.angle -= delta*3
+			#angle += -delta*3
+			#tangle += -delta*3
+		elif Input.is_action_pressed("rotate_right"):
+			BULLETS.rotate(delta*3)
+			SPAWNERS.angle += delta*3
+			#angle += delta*3
+			#tangle += delta*3
+	else:
+		$GameOver.visible = not Input.is_action_pressed("click")
+	
 func _on_Lifespan_game_over():
 	$GameOver/DeathCause.text = "Lifespan Timer Depleted"
 	game_over(false)
@@ -45,6 +50,8 @@ func game_over(collider):
 	var completion = floor(100-float(SPAWNERS.ct)/float(bulletMax)*100)
 	if completion == 100:
 		completion = 99
+	if completion <= 0:
+		completion = 0
 	$GameOver/Completion.text = str(completion)
 	for child in $Spawners.get_children():
 		if child.get_name() == "bullets" or child.get_name() == "Bounders":
@@ -53,7 +60,7 @@ func game_over(collider):
 		child.queue_free()
 	#$Player.visible = false
 	$GameOver.visible = true
-	set_process(false)
+	gameover = true
 func _on_Player_area_entered(area):
 	if not victory:
 		if not area.type == Global.BTYPES.inverse:
@@ -71,6 +78,7 @@ func _on_victory():
 		Global.levels_completed = Global.current_level
 	$Victory.visible = true
 	victory = true
+	gameover = true
 
 
 func _on_LevelSelect_pressed():

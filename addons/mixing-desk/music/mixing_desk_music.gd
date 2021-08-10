@@ -84,7 +84,7 @@ func init_song(track):
 		if song.fading_out:
 			i.get_child(0).stop(i)
 			song.fading_out = false
-		i.set_volume_db(default_vol)
+		#i.set_volume_db(default_vol)
 	if song.muted_tracks.size() > 0:
 		for i in song.muted_tracks:
 			mute(current_song_num, i)

@@ -40,4 +40,5 @@ func _on_Timer_timeout():
 
 func _on_starter_timeout():
 	_on_Timer_timeout()
+	get_node("../tutorial_overlay/AnimationPlayer").play("fade_in")
 	pass # Replace with function body.

@@ -9,6 +9,11 @@ var ct = 10
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$MDM.quickplay("Menu")
+	if muted:
+		$MDM.mute("Theme1","AudioStreamPlayer")
+		$MDM.mute("Theme1_defeat","AudioStreamPlayer")
+		$MDM.mute("Theme1_victory","AudioStreamPlayer")
+		$MDM.mute("Menu","AudioStreamPlayer")
 	pass # Replace with function body.
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func punctuate_song(song):
@@ -26,3 +31,4 @@ func toggle_mute():
 	$MDM.toggle_mute("Theme1_defeat","AudioStreamPlayer")
 	$MDM.toggle_mute("Theme1_victory","AudioStreamPlayer")
 	$MDM.toggle_mute("Menu","AudioStreamPlayer")
+	Global.save_game()

@@ -82,9 +82,9 @@ func _on_victory():
 	AudioManager.punctuate_song("Theme1_victory")
 	if Global.levels_completed < Global.current_level:
 		Global.levels_completed = Global.current_level
+	Global.save_game()
 	$Victory.visible = true
 	victory = true
-	gameover = true
 
 
 func _on_LevelSelect_pressed():

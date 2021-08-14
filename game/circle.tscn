@@ -10,62 +10,62 @@
 [ext_resource path="res://trans.png" type="Texture" id=8]
 [ext_resource path="res://game/CurrentLevel.gd" type="Script" id=9]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=11]
 size = 32
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=12]
 size = 48
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=13]
 size = 32
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=14]
 size = 32
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=15]
 size = 32
 font_data = ExtResource( 7 )
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=16]
 bg_color = Color( 0.286275, 0.286275, 0.286275, 1 )
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=17]
 bg_color = Color( 0.141176, 0.858824, 0.188235, 1 )
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=18]
 bg_color = Color( 0, 0.521569, 0.0352941, 1 )
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=19]
 bg_color = Color( 0, 0.521569, 0.0352941, 1 )
 
-[sub_resource type="Theme" id=10]
+[sub_resource type="Theme" id=20]
 Button/colors/font_color = Color( 1, 1, 1, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
 Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
 Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
 Button/constants/hseparation = 2
-Button/fonts/font = SubResource( 5 )
+Button/fonts/font = SubResource( 15 )
 Button/icons/black = null
-Button/styles/disabled = SubResource( 6 )
+Button/styles/disabled = SubResource( 16 )
 Button/styles/focus = null
-Button/styles/hover = SubResource( 7 )
-Button/styles/normal = SubResource( 8 )
-Button/styles/pressed = SubResource( 9 )
+Button/styles/hover = SubResource( 17 )
+Button/styles/normal = SubResource( 18 )
+Button/styles/pressed = SubResource( 19 )
 
-[sub_resource type="StyleBoxFlat" id=11]
+[sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0.576471, 0, 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=12]
+[sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0.823529, 0.00784314, 0.00784314, 1 )
 
-[sub_resource type="StyleBoxFlat" id=13]
+[sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.823529, 0.00784314, 0.00784314, 1 )
 
-[sub_resource type="CircleShape2D" id=14]
+[sub_resource type="CircleShape2D" id=21]
 radius = 9.0
 
 [node name="Node2D" type="Node2D"]
@@ -90,7 +90,7 @@ margin_left = 6.0
 margin_top = 6.0
 margin_right = 82.0
 margin_bottom = 51.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 11 )
 text = "1000"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -101,7 +101,7 @@ margin_left = 6.0
 margin_top = 554.716
 margin_right = 84.0
 margin_bottom = 599.716
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 11 )
 text = "Level"
 script = ExtResource( 9 )
 __meta__ = {
@@ -128,7 +128,7 @@ margin_left = -175.5
 margin_top = 197.0
 margin_right = 175.5
 margin_bottom = 263.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0.823529, 0.00784314, 0.00784314, 1 )
 text = "Game Over"
 align = 1
@@ -145,7 +145,7 @@ margin_left = -225.0
 margin_top = -55.0
 margin_right = 225.0
 margin_bottom = -10.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "You died"
 align = 1
@@ -158,7 +158,7 @@ margin_left = 241.0
 margin_top = 282.0
 margin_right = 287.0
 margin_bottom = 327.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 14 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "50"
 valign = 1
@@ -171,7 +171,7 @@ margin_left = 312.0
 margin_top = 282.0
 margin_right = 351.0
 margin_bottom = 327.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 14 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "%"
 align = 2
@@ -210,10 +210,10 @@ margin_right = 383.0
 margin_bottom = 45.0
 rect_min_size = Vector2( 179, 0 )
 mouse_default_cursor_shape = 2
-theme = SubResource( 10 )
-custom_styles/hover = SubResource( 11 )
-custom_styles/pressed = SubResource( 12 )
-custom_styles/normal = SubResource( 13 )
+theme = SubResource( 20 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
 text = "Try Again"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -234,7 +234,7 @@ margin_left = -175.5
 margin_top = 223.0
 margin_right = 175.5
 margin_bottom = 289.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0, 0.521569, 0.0352941, 1 )
 text = "Level Complete"
 __meta__ = {
@@ -285,8 +285,7 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource( 14 )
-
+shape = SubResource( 21 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="GameOver/HBoxContainer/LevelSelect" to="." method="_on_LevelSelect_pressed"]
 [connection signal="pressed" from="GameOver/HBoxContainer/TryAgain" to="." method="_on_TryAgain_pressed"]

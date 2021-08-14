@@ -11,7 +11,6 @@ func _ready():
 		ct += 1
 		var btn:Button = child.get_node("Button")
 		btn.text = str(ct)
-		continue
 		if ct > Global.levels_completed + 1:
 			btn.disabled = true
 	pass # Replace with function body.

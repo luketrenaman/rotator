@@ -10,7 +10,6 @@ var ct = 10
 func _ready():
 	$MDM.quickplay("Menu")
 	pass # Replace with function body.
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func punctuate_song(song):
 	$MDM.play_mode = 0

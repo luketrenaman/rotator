@@ -26,6 +26,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Input.is_action_just_pressed("mute"):
+		_on_Mute_pressed()
 	if Input.is_action_pressed("rotate_left"):
 		SPEED = -1
 	elif Input.is_action_pressed("rotate_right"):

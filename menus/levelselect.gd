@@ -13,7 +13,9 @@ func _ready():
 	else:
 		$Mute.text = "Mute"
 	pass # Replace with function body.
-
+func _process(delta):
+	if Input.is_action_just_pressed("mute"):
+		_on_Mute_pressed()
 func _on_Mute_pressed():
 	AudioManager.toggle_mute()
 	if AudioManager.muted:

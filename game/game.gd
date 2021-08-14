@@ -14,6 +14,12 @@ func _ready():
 		get_node("Lifespan").set_process(true)
 	bulletMax = SPAWNERS.ct
 func _process(delta):
+	if Input.is_action_just_pressed("mute"):
+		AudioManager.toggle_mute()
+	if Input.is_action_just_pressed("retry"):
+		get_tree().reload_current_scene()
+	if Input.is_action_pressed("exit"):
+		_on_LevelSelect_pressed()
 	if not gameover:
 		if Input.is_action_pressed("rotate_left"):
 			BULLETS.rotate(-delta*3)

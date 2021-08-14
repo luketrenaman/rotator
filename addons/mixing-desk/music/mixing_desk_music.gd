@@ -280,7 +280,8 @@ func mute(song, layer):
 	layer = _trackname_to_int(song, layer)
 	songs[song]._get_core().get_child(layer).volume_db = -65.0
 	var target = playing_tracks[layer]
-	target.set_volume_db(-60.0)
+	if is_instance_valid(target):
+		target.set_volume_db(-60.0)
 	var pos = songs[song].muted_tracks.find(layer)
 	if pos == null:
 		songs[song].muted_tracks.append(layer)
@@ -291,7 +292,8 @@ func unmute(song, layer):
 	layer = _trackname_to_int(song, layer)
 	songs[song]._get_core().get_child(layer).volume_db = 0
 	var target = playing_tracks[layer]
-	target.set_volume_db(default_vol)
+	if is_instance_valid(target):
+		target.set_volume_db(default_vol)
 	var pos = songs[song].muted_tracks.find(layer)
 	if pos != -1:
 		songs[song].muted_tracks.remove(pos)

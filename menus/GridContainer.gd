@@ -2,7 +2,7 @@ extends GridContainer
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+onready var YELLOW_BUTTON = preload("res://menus/yellow_button.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,6 +13,8 @@ func _ready():
 		btn.text = str(ct)
 		if ct > Global.levels_completed + 1:
 			btn.disabled = true
+		if ct == Global.levels_completed + 1:
+			btn.theme = YELLOW_BUTTON
 	pass # Replace with function body.
 
 

@@ -11,7 +11,7 @@
 size = 48
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=2]
 size = 24
 font_data = ExtResource( 4 )
 
@@ -168,11 +168,12 @@ margin_right = -29.0
 margin_bottom = -31.0
 mouse_default_cursor_shape = 2
 theme = ExtResource( 6 )
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Mute"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="Button" to="GridContainer" method="_on_Button_pressed"]
 [connection signal="pressed" from="Mute" to="." method="_on_Mute_pressed"]

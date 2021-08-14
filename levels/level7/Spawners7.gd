@@ -51,11 +51,13 @@ func _process(delta):
 
 
 func _on_Timer2_timeout():
+	if len(tunnel.get_children()) == 0:
+		return
 	var farthest = tunnel.get_children()[tunnel.get_child_count()-1]
-	if (farthest.get_position().length()-320) <= 0 or ct <= 0:
+	if (farthest.get_position().length()-120) <= 0 or ct <= 0:
 		ct = 0
 	else:
-		ct = (farthest.get_position().length()-320)/875
+		ct = (farthest.get_position().length()-120)/1100
 		
 	$"../Label".text = str(ceil(ct*100)) + "%"
 	pass # Replace with function body.

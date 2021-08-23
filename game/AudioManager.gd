@@ -4,16 +4,14 @@ extends Node
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+var master_sound = AudioServer.get_bus_index("Master")
 var muted = false
 var ct = 10
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$MDM.quickplay("Menu")
 	if muted:
-		$MDM.mute("Theme1","AudioStreamPlayer")
-		$MDM.mute("Theme1_defeat","AudioStreamPlayer")
-		$MDM.mute("Theme1_victory","AudioStreamPlayer")
-		$MDM.mute("Menu","AudioStreamPlayer")
+		AudioServer.set_bus_mute(master_sound, false)
 	pass # Replace with function body.
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func punctuate_song(song):
@@ -27,8 +25,8 @@ func stop():
 	$MDM._stop_overlays()
 func toggle_mute():
 	muted = not muted
-	$MDM.toggle_mute("Theme1","AudioStreamPlayer")
-	$MDM.toggle_mute("Theme1_defeat","AudioStreamPlayer")
-	$MDM.toggle_mute("Theme1_victory","AudioStreamPlayer")
-	$MDM.toggle_mute("Menu","AudioStreamPlayer")
+	if muted:
+		AudioServer.set_bus_mute(master_sound, true)
+	else:
+		AudioServer.set_bus_mute(master_sound, false)
 	Global.save_game()

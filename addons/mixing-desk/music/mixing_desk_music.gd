@@ -273,7 +273,6 @@ func solo(song, layer):
 			fade_out(song, i)
 		if layer == 1:
 			fade_out(song, 0)
-
 #mute only the specified layer
 func mute(song, layer):
 	song = _songname_to_int(song)

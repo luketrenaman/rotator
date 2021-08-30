@@ -3,10 +3,10 @@
 [ext_resource path="res://levels/level1/Spawners1.gd" type="Script" id=1]
 [ext_resource path="res://game/circle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://bullets/Bounders.tscn" type="PackedScene" id=3]
-[ext_resource path="res://tutorial_overlay.png" type="Texture" id=4]
+[ext_resource path="res://game/tutorial_overlay.png" type="Texture" id=4]
 [ext_resource path="res://levels/level1/tutorial_overlay.gd" type="Script" id=5]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "fade_in"
 length = 0.5
 tracks/0/type = "value"
@@ -22,8 +22,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "fade_out"
+[sub_resource type="Animation" id=2]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -46,8 +45,8 @@ texture = ExtResource( 4 )
 script = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="tutorial_overlay" index="0"]
-anims/fade_in = SubResource( 2 )
-anims/fade_out = SubResource( 1 )
+anims/fade_in = SubResource( 1 )
+anims/fade_out = SubResource( 2 )
 
 [node name="Spawners" parent="." index="1"]
 script = ExtResource( 1 )

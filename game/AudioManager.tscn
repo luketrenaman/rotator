@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://menu_leave.ogg" type="AudioStream" id=1]
+[ext_resource path="res://music/menu_leave.ogg" type="AudioStream" id=1]
 [ext_resource path="res://addons/mixing-desk/music/song.gd" type="Script" id=2]
 [ext_resource path="res://addons/mixing-desk/music/containers/core_cont.gd" type="Script" id=3]
 [ext_resource path="res://addons/mixing-desk/music/mixing_desk_music.gd" type="Script" id=4]
 [ext_resource path="res://game/AudioManager.gd" type="Script" id=5]
-[ext_resource path="res://cmloop.ogg" type="AudioStream" id=6]
-[ext_resource path="res://cmdefeat.ogg" type="AudioStream" id=7]
-[ext_resource path="res://cmvictory.ogg" type="AudioStream" id=8]
+[ext_resource path="res://music/cmloop.ogg" type="AudioStream" id=6]
+[ext_resource path="res://music/cmdefeat.ogg" type="AudioStream" id=7]
+[ext_resource path="res://music/cmvictory.ogg" type="AudioStream" id=8]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource( 5 )

@@ -7,8 +7,9 @@
 [ext_resource path="res://menus/standard_button.tres" type="Theme" id=5]
 [ext_resource path="res://menus/black_button.tres" type="Theme" id=6]
 [ext_resource path="res://NunitoSans-Black.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://trans.png" type="Texture" id=8]
+[ext_resource path="res://game/trans.png" type="Texture" id=8]
 [ext_resource path="res://game/CurrentLevel.gd" type="Script" id=9]
+
 
 [sub_resource type="DynamicFont" id=11]
 size = 32

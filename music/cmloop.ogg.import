@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/cmloop.ogg-3750d0e4ee6c476d1602619562651ebf.oggstr"
+
+[deps]
+
+source_file="res://music/cmloop.ogg"
+dest_files=[ "res://.import/cmloop.ogg-3750d0e4ee6c476d1602619562651ebf.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

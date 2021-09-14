@@ -14,7 +14,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="circle"
+config/name="Rotator"
 run/main_scene="res://menus/titlescreen.tscn"
 
 [autoload]

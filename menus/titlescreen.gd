@@ -11,6 +11,7 @@ onready var BLACK_BUTTON = preload("res://menus/black_button.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	AudioManager.start_mute()
 	if AudioManager.muted:
 		$Mute.text = "Unmute"
 		$Mute.theme = BLACK_BUTTON

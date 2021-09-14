@@ -25,6 +25,8 @@ func stop():
 	$MDM._stop_overlays()
 func toggle_mute():
 	muted = not muted
+	start_mute()
+func start_mute():
 	if muted:
 		AudioServer.set_bus_mute(master_sound, true)
 	else:

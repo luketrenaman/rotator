@@ -8,7 +8,7 @@ Rotator is a level-based bullet hell with a unique mechanic: the player controls
 
 The original concept for this game involved a player that could move around and rotate the bullets within a circular arena to dodge the bullets. I eventually settled on the concept of a player fixed in the middle of the arena. I used [Godot](https://godotengine.org/) to make this game, and the initial prototype had bullets that could be rotated by Q and E. Soon, I introduced a second bullet type that rotated the opposite direction. Whenever you were hit by a bullet, you would be taken to this lovely game over screen, and you would be provided with a nonfunctional retry button.
 
-![A gameover screen with red "You died!" text and a white "retry" button, written in poor handwriting.](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/837b29cc-12dc-45bc-8b19-a8b1fd3ecbf3/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210830%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210830T212523Z&X-Amz-Expires=86400&X-Amz-Signature=5f8d5d164e369fc0313aeb46d4ea41805fad717c424578b821d7bf21c50b292f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
+![A gameover screen with red "You died!" text and a white "retry" button, written in poor handwriting.](https://res.cloudinary.com/dgdv2m32g/image/upload/v1631653818/Untitled_wpnvdj.png)
 
 ## Engine
 

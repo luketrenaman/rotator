@@ -8,11 +8,20 @@ var tangle = 0
 var victory = false
 var gameover = false
 var bulletMax = 0
+var mobile_rotate_left = false
+var mobile_rotate_right = false
 func _ready():
 	AudioManager.change_song("Theme1")
 	if self.has_node("Lifespan"):
 		get_node("Lifespan").set_process(true)
 	bulletMax = SPAWNERS.ct
+func _input(event):
+	if event is InputEventScreenTouch && event.is_pressed():
+		mobile_rotate_left = event.position.x <= 300
+		mobile_rotate_right = event.position.x > 300
+	else:
+		mobile_rotate_left = false
+		mobile_rotate_right = false
 func _process(delta):
 	if Input.is_action_just_pressed("mute"):
 		AudioManager.toggle_mute()
@@ -21,12 +30,12 @@ func _process(delta):
 	if Input.is_action_pressed("exit"):
 		_on_LevelSelect_pressed()
 	if not gameover:
-		if Input.is_action_pressed("rotate_left"):
+		if Input.is_action_pressed("rotate_left") or mobile_rotate_left:
 			BULLETS.rotate(-delta*3)
 			SPAWNERS.angle -= delta*3
 			#angle += -delta*3
 			#tangle += -delta*3
-		elif Input.is_action_pressed("rotate_right"):
+		elif Input.is_action_pressed("rotate_right") or mobile_rotate_right:
 			BULLETS.rotate(delta*3)
 			SPAWNERS.angle += delta*3
 			#angle += delta*3

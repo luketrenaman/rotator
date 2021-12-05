@@ -94,6 +94,6 @@ func _on_Button3_pressed():
 
 
 func _on_Button4_pressed():
-	Global.current_level = 13
+	Global.current_level = 14
 	get_tree().change_scene("res://levels/level13/"+"level13.tscn")
 	pass # Replace with function body.

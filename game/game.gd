@@ -112,3 +112,9 @@ func _on_NextLevel_pressed():
 func _on_TryAgain_pressed():
 	get_tree().reload_current_scene()
 	pass # Replace with function body.
+
+
+func _on_PlayerLeft_escaped():
+	$GameOver/DeathCause.text = "Player Left Stage"
+	game_over(false)
+	pass # Replace with function body.

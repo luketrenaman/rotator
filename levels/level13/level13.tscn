@@ -1,0 +1,334 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://game/player.png" type="Texture" id=1]
+[ext_resource path="res://levels/level12/Spawners12.gd" type="Script" id=2]
+[ext_resource path="res://bullets/bullets.gd" type="Script" id=3]
+[ext_resource path="res://NunitoSans-Black.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://menus/black_button.tres" type="Theme" id=5]
+[ext_resource path="res://menus/standard_button.tres" type="Theme" id=6]
+[ext_resource path="res://game/game.gd" type="Script" id=7]
+[ext_resource path="res://game/CurrentLevel.gd" type="Script" id=8]
+[ext_resource path="res://game/trans.png" type="Texture" id=9]
+[ext_resource path="res://game/circle.png" type="Texture" id=10]
+[ext_resource path="res://bullets/Lifespan.tscn" type="PackedScene" id=11]
+[ext_resource path="res://levels/level13/PlayerLeft.gd" type="Script" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 4 )
+
+[sub_resource type="CircleShape2D" id=14]
+radius = 9.0
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.286275, 0.286275, 0.286275, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.141176, 0.858824, 0.188235, 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0, 0.521569, 0.0352941, 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0, 0.521569, 0.0352941, 1 )
+
+[sub_resource type="Theme" id=10]
+Button/colors/font_color = Color( 1, 1, 1, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = SubResource( 5 )
+Button/icons/black = null
+Button/styles/disabled = SubResource( 6 )
+Button/styles/focus = null
+Button/styles/hover = SubResource( 7 )
+Button/styles/normal = SubResource( 8 )
+Button/styles/pressed = SubResource( 9 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.576471, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.823529, 0.00784314, 0.00784314, 1 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.823529, 0.00784314, 0.00784314, 1 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="Spawners" type="Node2D" parent="."]
+pause_mode = 2
+script = ExtResource( 2 )
+
+[node name="bullets" type="Node2D" parent="Spawners"]
+position = Vector2( 300, 300 )
+script = ExtResource( 3 )
+
+[node name="spiky" type="Timer" parent="Spawners"]
+wait_time = 0.2
+autostart = true
+
+[node name="life2" type="Timer" parent="Spawners"]
+wait_time = 5.6
+autostart = true
+
+[node name="skyspiky" type="Timer" parent="Spawners"]
+autostart = true
+
+[node name="lifespeed" type="Timer" parent="Spawners"]
+wait_time = 0.4
+autostart = true
+
+[node name="circle" type="Sprite" parent="."]
+position = Vector2( 300, 300 )
+texture = ExtResource( 10 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="Label" type="Label" parent="."]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 82.0
+margin_bottom = 51.0
+custom_fonts/font = SubResource( 1 )
+text = "1000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CurrentLevel" type="Label" parent="."]
+margin_left = 6.0
+margin_top = 554.716
+margin_right = 84.0
+margin_bottom = 599.716
+custom_fonts/font = SubResource( 1 )
+text = "Level"
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lifespan" parent="." instance=ExtResource( 11 )]
+margin_right = 600.0
+margin_bottom = 600.0
+life = 15.0
+
+[node name="PlayerLeft" type="Area2D" parent="."]
+position = Vector2( 260, 300 )
+collision_layer = 2
+script = ExtResource( 12 )
+
+[node name="player" type="Sprite" parent="PlayerLeft"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+
+[node name="shade" type="Sprite" parent="PlayerLeft"]
+modulate = Color( 1, 1, 1, 0.356863 )
+position = Vector2( -50, 0 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerLeft"]
+shape = SubResource( 14 )
+
+[node name="GameOver" type="Control" parent="."]
+visible = false
+margin_right = 600.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="trans" type="Sprite" parent="GameOver"]
+modulate = Color( 1, 1, 1, 0.682353 )
+position = Vector2( 300, 300 )
+texture = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="GameOver"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -175.5
+margin_top = 197.0
+margin_right = 175.5
+margin_bottom = 263.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.823529, 0.00784314, 0.00784314, 1 )
+text = "Game Over"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DeathCause" type="Label" parent="GameOver"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -225.0
+margin_top = -55.0
+margin_right = 225.0
+margin_bottom = -10.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "You died"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Completion" type="Label" parent="GameOver"]
+margin_left = 241.0
+margin_top = 282.0
+margin_right = 287.0
+margin_bottom = 327.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "50"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Completion2" type="Label" parent="GameOver"]
+margin_left = 312.0
+margin_top = 282.0
+margin_right = 351.0
+margin_bottom = 327.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "%"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameOver"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -191.5
+margin_top = 37.5
+margin_right = 191.5
+margin_bottom = 82.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelSelect" type="Button" parent="GameOver/HBoxContainer"]
+margin_right = 200.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 200, 0 )
+mouse_default_cursor_shape = 2
+theme = ExtResource( 5 )
+text = "Level Select"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TryAgain" type="Button" parent="GameOver/HBoxContainer"]
+margin_left = 204.0
+margin_right = 383.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 179, 0 )
+mouse_default_cursor_shape = 2
+theme = SubResource( 10 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+text = "Try Again"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Victory" type="Control" parent="."]
+visible = false
+margin_right = 600.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Victory"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -175.5
+margin_top = 223.0
+margin_right = 175.5
+margin_bottom = 289.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0.521569, 0.0352941, 1 )
+text = "Level Complete"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Victory"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -191.5
+margin_top = 37.5
+margin_right = 191.5
+margin_bottom = 82.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelSelect" type="Button" parent="Victory/HBoxContainer"]
+margin_left = 91.0
+margin_right = 291.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 200, 0 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 6
+theme = ExtResource( 5 )
+text = "Level Select"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextLevel" type="Button" parent="Victory/HBoxContainer"]
+visible = false
+margin_left = 204.0
+margin_right = 383.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 179, 0 )
+mouse_default_cursor_shape = 2
+theme = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="timeout" from="Spawners/spiky" to="Spawners" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Spawners/life2" to="Spawners" method="_on_Timer2_timeout"]
+[connection signal="timeout" from="Spawners/skyspiky" to="Spawners" method="_on_Timer3_timeout"]
+[connection signal="timeout" from="Spawners/lifespeed" to="Spawners" method="_on_lifespeed_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="area_entered" from="PlayerLeft" to="." method="_on_Player_area_entered"]
+[connection signal="escaped" from="PlayerLeft" to="." method="_on_PlayerLeft_escaped"]
+[connection signal="pressed" from="GameOver/HBoxContainer/LevelSelect" to="." method="_on_LevelSelect_pressed"]
+[connection signal="pressed" from="GameOver/HBoxContainer/TryAgain" to="." method="_on_TryAgain_pressed"]
+[connection signal="pressed" from="Victory/HBoxContainer/LevelSelect" to="." method="_on_LevelSelect_pressed"]
+[connection signal="pressed" from="Victory/HBoxContainer/NextLevel" to="." method="_on_NextLevel_pressed"]

@@ -1,6 +1,7 @@
 extends Node
 var current_level = 0
 var levels_completed = 0
+var encore_unlocked = false
 enum BTYPES{bullet,inverse,orange,bounder,tunnel,tchild}
 
 # Declare member variables here. Examples:
@@ -21,7 +22,7 @@ func save_game():
 	var save_game = File.new()
 	save_game.open("user://savegame.save", File.WRITE)
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
-	save_game.store_line(to_json({"current_level":current_level,"levels_completed":levels_completed,"muted":AudioManager.muted}))
+	save_game.store_line(to_json({"current_level":current_level,"levels_completed":levels_completed,"muted":AudioManager.muted,"encore_unlocked":encore_unlocked}))
 	save_game.close()
 func load_game():
 	var save_game = File.new()
@@ -32,4 +33,6 @@ func load_game():
 	levels_completed = game_data["levels_completed"]
 	current_level = game_data["current_level"]
 	AudioManager.muted = game_data["muted"]
+	if "encore_unlocked" in game_data:
+		encore_unlocked = game_data["encore_unlocked"]
 	save_game.close()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://game/player.png" type="Texture" id=1]
-[ext_resource path="res://levels/level12/Spawners12.gd" type="Script" id=2]
+[ext_resource path="res://levels/level13/Spawners13.gd" type="Script" id=2]
 [ext_resource path="res://bullets/bullets.gd" type="Script" id=3]
 [ext_resource path="res://NunitoSans-Black.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://menus/black_button.tres" type="Theme" id=5]

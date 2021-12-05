@@ -7,10 +7,12 @@ onready var BLACK_BUTTON = preload("res://menus/black_button.tres")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+var p1 = 0
+var p2 = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	check_encore_unlocked()
 	AudioManager.start_mute()
 	if AudioManager.muted:
 		$Mute.text = "Unmute"
@@ -61,4 +63,37 @@ func _on_Mute_pressed():
 	else:
 		$Mute.text = "Mute"
 		$Mute.theme = RED_BUTTON
+	pass # Replace with function body.
+
+func check_encore_unlocked():
+	if (Global.levels_completed >= 12 and p1 >= 3 and p2 >= 3) or Global.encore_unlocked and not (p2 >= 10):
+		$player.visible = false
+		$bullets.visible = false
+		$encore.visible = true
+		$encore/Button4.disabled = false
+		Global.encore_unlocked = true
+		Global.save_game()
+	else:
+		$player.visible = true
+		$bullets.visible = true
+		$encore.visible = false
+		$encore/Button4.disabled = true
+		Global.encore_unlocked = false
+		Global.save_game()
+func _on_Button2_pressed():
+	p1 += 1
+	check_encore_unlocked()
+	pass # Replace with function body.
+
+
+func _on_Button3_pressed():
+	p2 += 1
+	check_encore_unlocked()
+	pass # Replace with function body.
+
+
+
+func _on_Button4_pressed():
+	Global.current_level = 13
+	get_tree().change_scene("res://levels/level13/"+"level13.tscn")
 	pass # Replace with function body.

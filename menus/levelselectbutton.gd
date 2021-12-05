@@ -4,5 +4,6 @@ var val = 0
 func _ready():
 	self.connect("pressed", get_parent(), "_on_Control_pressed")
 func _on_Button_pressed():
+	print("testing")
 	emit_signal("pressed",$Button.text)
 	pass # Replace with function body.

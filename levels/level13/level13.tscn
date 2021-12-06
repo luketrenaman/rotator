@@ -127,7 +127,7 @@ __meta__ = {
 [node name="Lifespan" parent="." instance=ExtResource( 11 )]
 margin_right = 600.0
 margin_bottom = 600.0
-life = 15.0
+life = 18.0
 
 [node name="PlayerLeft" type="Area2D" parent="."]
 position = Vector2( 260, 300 )

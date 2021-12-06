@@ -32,7 +32,7 @@ func stop_all_timers():
 func _on_Timer2_timeout():
 	for i in range(0,8):
 		var bul = BULLET_INVERSE.instance()
-		bul.set_position(Vector2(50,0))
+		bul.set_position(Vector2(65,0))
 		bul.rotation = -float(i)*1/4*PI
 		Bullets.add_child(bul)
 		ct -= 1

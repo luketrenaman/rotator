@@ -65,3 +65,6 @@ In addition to 12 levels, I added the following features:
 # Conclusion
 
 Rotator took around 3 months to develop, and I had a blast designing the levels. My favorite thing about this game was learning how the rotation mechanics worked, and starting to get a feel for how the bullets moved around the player.
+
+## License
+The source code to Rotator is under the MIT license, but this does not apply to game assets (music, images) by Luke Trenaman.

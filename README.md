@@ -1,6 +1,6 @@
 
 # Rotator
-Rotator is a level-based bullet hell with a unique mechanic: the player controls the bullets. You can play it on [luketrenaman.com](https://luketrenaman.com/rotator) or [itch.io](https://luketrenaman.itch.io/rotator).
+Rotator is a level-based bullet hell with a unique mechanic: the player controls the bullets. You can play it on [luketrenaman.com](https://luketrenaman.com/rotator).
 
 # Development process
 
